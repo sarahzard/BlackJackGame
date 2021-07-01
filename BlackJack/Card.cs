@@ -61,13 +61,13 @@ namespace BlackJack
             Random random = new Random();
             int cardValue = random.Next((int) Card.Value.Ace, (int) Card.Value.King+1);
             var card = new Card(cardValue);
-            Console.WriteLine(card);
+            //Console.WriteLine(card);
             return card;
         }
 
-        public string CardValueAsString()
+        public string AsString()
         {
-            return $"{_value}";
+            return $"{Value1}";
         }
     }
 }

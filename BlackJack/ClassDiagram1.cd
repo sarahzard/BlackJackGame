@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BlackJack.Card">
-    <Position X="3.25" Y="0.75" Width="1.5" />
+    <Position X="5.75" Y="0.75" Width="1.5" />
     <NestedTypes>
-      <Enum Name="BlackJack.Card.Value" Collapsed="true">
+      <Enum Name="BlackJack.Card.Suit" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Card.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
-      <Enum Name="BlackJack.Card.Suit" Collapsed="true">
+      <Enum Name="BlackJack.Card.Value" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Card.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -22,21 +22,21 @@
   <Class Name="BlackJack.Player">
     <Position X="0.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAIAAAAgAAAAAAAQgAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAAAIAAAAgAAAAAAAQAAAAAAAAAAQ=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BlackJack.Dealer">
-    <Position X="5.75" Y="2" Width="1.5" />
+    <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAYAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Dealer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BlackJack.Table">
     <Position X="3.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAACQAAQAAAAAAAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAACQAAQAAAAAAAgAQAAAAAAAA=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>

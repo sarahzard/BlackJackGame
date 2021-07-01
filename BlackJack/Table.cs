@@ -17,15 +17,34 @@ namespace BlackJack
         }
         public void PlayBlackJack()
         {
-            //Skal til classen "table"?
-            //start med å dele ut 2 kort hver
+            //Give cards to dealer, give cards to player + write to console
+            _dealer.DealCard();
 
-            //Hello-text
+            //WriteLine "Your hand is: ** would you like to hit or stay"
+            _player.InitialCards();
 
-            //Give cards to dealer, give cards to player
+            //repeat until gameover or plays stays
 
             //
-            _dealer.DealCard();
+
+            //Display end message
+            if (_player.Sum == 21)
+            {
+                if(_player.Sum == 21) //&& cardCount == 2)
+                BlackJack();
+                else
+                {
+                    TwentyOne();
+                }
+            }
+            else if (_player.Sum > 21)
+            {
+                GameOver();
+            }
+            else if (_player.Sum < 21)
+            {
+
+            }
 
         }
 
@@ -36,12 +55,12 @@ namespace BlackJack
 
         public void TwentyOne()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Congratulations! You got TwentyOne!");
         }
 
         public void GameOver()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Sorry! You lost.");
         }
     }
 }

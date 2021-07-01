@@ -21,28 +21,46 @@ namespace BlackJack
             }
         }
 
+        public void InitialCards()
+        {
+            Card card1 = new Card();
+            Card card2 = new Card();
+            Console.WriteLine($"Your hand is: {card1.Value1} and {card2.Value1}");
+            Console.WriteLine("Would you like to hit or stay? h/s\n");
+            var choice = Console.ReadKey();
+
+            if (choice.KeyChar == 'h')
+            {
+                Hit();
+            }
+            else if (choice.KeyChar == 's')
+            {
+                Stay();
+            }
+        }
         public static int Hit()
         {
-            Console.WriteLine("");
+            
             var newCardValue = Card.NewCard();
             int prevSum = 0; //something
-            int newSum = prevSum + (int)newCardValue;
-            
-            UpdateScore();
+            int newSum = 0;//prevSum + (int)newCardValue;
+
+
+            //UpdateScore();
             return newSum;
         }
 
         public void Stay()
         {
-            throw new System.NotImplementedException();
+            // bool settes til true; isDone = true;?
         }
 
-        public static int UpdateScore()
-        {
-            int updatedScore = Player.Hit();
-            //_sumOfCards = score;
-            return updatedScore;
-        }
+        //public static int UpdateScore()
+        //{
+        //    //int updatedScore = Player.Hit();
+        //    //_sumOfCards = score;
+        //    //return updatedScore;
+        //}
 
 
     }
