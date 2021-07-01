@@ -8,9 +8,6 @@ namespace BlackJack
         {
             var table = new Table();
             table.PlayBlackJack();
-            //var player = new Player();
-            //player.PlayBlackJack();
-            //Card.NewCard();
         }
     }
 }

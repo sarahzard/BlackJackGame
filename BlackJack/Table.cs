@@ -7,8 +7,9 @@ namespace BlackJack
 {
     public class Table
     {
-        private Dealer _dealer;
-        private Player _player;
+        private readonly Dealer _dealer;
+        private readonly Player _player;
+        
 
         public Table()
         {
@@ -17,40 +18,55 @@ namespace BlackJack
         }
         public void PlayBlackJack()
         {
-            //Give cards to dealer, give cards to player + write to console
-            _dealer.DealCard();
-
-            //WriteLine "Your hand is: ** would you like to hit or stay"
+            _dealer.InitialCards();
             _player.InitialCards();
 
-            //repeat until gameover or plays stays
-
-            //
-
-            //Display end message
-            if (_player.Sum == 21)
+            while (_player.isPlaying)
             {
-                if(_player.Sum == 21) //&& cardCount == 2)
-                BlackJack();
-                else
+                _player.PlayTurn();
+
+                if (_player.SumOfCards > 21)
                 {
-                    TwentyOne();
+                    GameOver();
+                    _player.isPlaying = false;
+                    Console.WriteLine($"Your total was {_player.SumOfCards}.");
+                    Environment.Exit(0);
                 }
+
             }
-            else if (_player.Sum > 21)
+
+            _dealer.PlayTurn();
+
+            while (_dealer.SumOfCards <= 17)
+            {
+                _dealer.Hit();
+            }
+
+            if (_dealer.SumOfCards >= _player.SumOfCards && _dealer.SumOfCards <= 21)
             {
                 GameOver();
-            }
-            else if (_player.Sum < 21)
-            {
+                Console.WriteLine($"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
 
+            }
+            else if (_dealer.SumOfCards >= _player.SumOfCards && _dealer.SumOfCards > 21)
+            {
+                BlackJack();
+            }
+            else if (_dealer.SumOfCards < _player.SumOfCards && _player.SumOfCards <= 21)
+            {
+                BlackJack();
+            }
+            else
+            {
+                Console.WriteLine("Error. Programmer did not take this into account. Both lose. Big sorry.");
             }
 
         }
 
         public void BlackJack()
         {
-            Console.WriteLine("Congratulations! You got Blackjack!");
+            Console.WriteLine("\nCongratulations! You got Blackjack!");
+            Console.WriteLine($"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
         }
 
         public void TwentyOne()
@@ -60,7 +76,9 @@ namespace BlackJack
 
         public void GameOver()
         {
-            Console.WriteLine("Sorry! You lost.");
+            Console.WriteLine("\nSorry! You lost.");
+
+
         }
     }
 }

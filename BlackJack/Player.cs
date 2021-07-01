@@ -8,8 +8,9 @@ namespace BlackJack
     public class Player
     {
         private int _sumOfCards;
-
-        public int Sum
+        private int _initialSum;
+        public bool isPlaying = true;
+        public int SumOfCards
         {
             get
             {
@@ -17,21 +18,37 @@ namespace BlackJack
             }
             set
             {
-                //if (_sumOfCards > 21)
-                //{
-
-                //}
                 _sumOfCards = value;
             }
         }
-
-        public void InitialCards()
+        public int InitialSum
         {
-            Card card1 = Card.NewCard();
+            get
+            {
+                return _initialSum;
+            }
+            set
+            {
+                _initialSum = value;
+            }
+        }
+
+        public int InitialCards()
+        {
+            Card card1 = new Card();
             Card card2 = new Card();
-            Console.WriteLine($"Your hand is: {card1.Value1} and {card2.Value1}");
+            Console.WriteLine($"Your hand is: {card1.Value}({(int)card1.Value}) and {card2.Value}({(int)card2.Value})\n");
+            InitialSum = (int)card1.Value + (int)card2.Value;
+            SumOfCards = InitialSum;
+
+            return InitialSum;
+        }
+
+        public void PlayTurn()
+        {
             Console.WriteLine("Would you like to hit or stay? h/s\n");
-            var choice = Console.ReadKey();
+            var choice = Console.ReadKey(); //How to read key but not show in console
+            Console.WriteLine();
 
             if (choice.KeyChar == 'h')
             {
@@ -42,30 +59,20 @@ namespace BlackJack
                 Stay();
             }
         }
-        public static int Hit()
+        public int Hit()
         {
+            var newCard = new Card();
+            Console.WriteLine($"You got {newCard.Value} ({(int)newCard.Value}).");
+            SumOfCards += (int)newCard.Value;
+            //isPlaying = true;
+            return SumOfCards;
             
-            var newCardValue = Card.NewCard();
-            int prevSum = 0; //something
-            int newSum = 0;//prevSum + (int)newCardValue;
-
-
-            //UpdateScore();
-            return newSum;
         }
 
         public void Stay()
-        {
-            // bool settes til true; isDone = true;?
+        { ;
+            Console.WriteLine($"You chose to stay. You sum is: {SumOfCards}\n");
+            isPlaying = false;
         }
-
-        //public static int UpdateScore()
-        //{
-        //    //int updatedScore = Player.Hit();
-        //    //_sumOfCards = score;
-        //    //return updatedScore;
-        //}
-
-
     }
 }

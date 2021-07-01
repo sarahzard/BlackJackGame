@@ -7,20 +7,19 @@ namespace BlackJack
 {
     public class Card
     {
-        private Value _value;
+        private CardValue _value;
         private int _suit;
-        
+        private Random _random = new Random();
+
         #region Constructors
-        public Card(Value value = Value.Ace)
+        public Card()
         {
-           // _suit = suit;
-           //var enumValue = Enum.Format()
-           _value = value;
+            _value = (CardValue)_random.Next((int)CardValue.Ace, (int)CardValue.King + 1);
         }
         #endregion Constructors
 
         #region Properties
-        public Value Value1
+        public CardValue Value
         {
             get
             {
@@ -32,7 +31,7 @@ namespace BlackJack
             }
         }
 
-        public int Suit1
+        public int Suit
         {
             get => default;
             set => _suit = value;
@@ -40,14 +39,14 @@ namespace BlackJack
         }
         #endregion Properties
 
-        public enum Suit
+        public enum CardSuit
         {
             Hearts,
             Clubs,
             Diamonds,
             Spades
         }
-        public enum Value
+        public enum CardValue
         {
             Ace = 1,
             Two,
@@ -63,20 +62,21 @@ namespace BlackJack
             Queen,// = 10,
             King //= 10
         }
-        public static Card NewCard()
-        {
+
+        //THIS IS REDUNDANT
+        //public static Card NewCard()
+        //{
             
-            Random random = new Random();
-            Value cardValue = (Value)random.Next((int) Card.Value.Ace, (int) Card.Value.King+1);
             
-            var card = new Card(cardValue);
-            //Console.WriteLine(card);
-            return card;
-        }
+            
+        //    var card = new Card(cardValue);
+        //    //Console.WriteLine(card);
+        //    return card;
+        //}
 
         public string AsString()
         {
-            return $"{Value1}";
+            return $"{Value}";
         }
     }
 }
