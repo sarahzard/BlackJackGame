@@ -11,19 +11,23 @@ namespace BlackJack
 
         public int Sum
         {
-            get => default;
+            get
+            {
+                return _sumOfCards;
+            }
             set
             {
-                if (_sumOfCards > 21)
-                {
+                //if (_sumOfCards > 21)
+                //{
 
-                }
+                //}
+                _sumOfCards = value;
             }
         }
 
         public void InitialCards()
         {
-            Card card1 = new Card();
+            Card card1 = Card.NewCard();
             Card card2 = new Card();
             Console.WriteLine($"Your hand is: {card1.Value1} and {card2.Value1}");
             Console.WriteLine("Would you like to hit or stay? h/s\n");

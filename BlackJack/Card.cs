@@ -7,22 +7,29 @@ namespace BlackJack
 {
     public class Card
     {
-        private int _value;
+        private Value _value;
         private int _suit;
         
         #region Constructors
-        public Card(int value = 1)
+        public Card(Value value = Value.Ace)
         {
            // _suit = suit;
-            _value = value;
+           //var enumValue = Enum.Format()
+           _value = value;
         }
         #endregion Constructors
 
         #region Properties
-        public int Value1
+        public Value Value1
         {
-            get => default;
-            set => _value = value;
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+            }
         }
 
         public int Suit1
@@ -52,14 +59,16 @@ namespace BlackJack
             Eight,
             Nine,
             Ten,
-            Jack = 10,
-            Queen = 10,
-            King = 10
+            Jack,// = 10,
+            Queen,// = 10,
+            King //= 10
         }
         public static Card NewCard()
         {
+            
             Random random = new Random();
-            int cardValue = random.Next((int) Card.Value.Ace, (int) Card.Value.King+1);
+            Value cardValue = (Value)random.Next((int) Card.Value.Ace, (int) Card.Value.King+1);
+            
             var card = new Card(cardValue);
             //Console.WriteLine(card);
             return card;
