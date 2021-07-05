@@ -62,21 +62,5 @@ namespace BlackJack
             Queen,// = 10,
             King //= 10
         }
-
-        //THIS IS REDUNDANT
-        //public static Card NewCard()
-        //{
-            
-            
-            
-        //    var card = new Card(cardValue);
-        //    //Console.WriteLine(card);
-        //    return card;
-        //}
-
-        public string AsString()
-        {
-            return $"{Value}";
-        }
     }
 }
