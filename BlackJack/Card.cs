@@ -7,21 +7,21 @@ namespace BlackJack
 {
     public class Card
     {
-        private CardValue _value;
+        private CardId _value;
         private int _suit;
-        private Random _random = new Random();
+        private readonly Random _random = new Random();
 
         #region Constructors
         public Card()
         {
-            _value = (CardValue)_random.Next((int)CardValue.Ace, (int)CardValue.King + 1);
+            _value = (CardId)_random.Next((int)CardId.Ace, (int)CardId.King + 1);
             AdjustCardValue();
         }
         #endregion Constructors
 
         #region Properties
-        public int RealCardValue { get; set; }
-        public CardValue Value
+        public int CardValue { get; set; }
+        public CardId Id
         {
             get
             {
@@ -48,7 +48,7 @@ namespace BlackJack
             Diamonds,
             Spades
         }
-        public enum CardValue
+        public enum CardId
         {
             Ace = 1,
             Two,
@@ -66,14 +66,11 @@ namespace BlackJack
         }
         public void AdjustCardValue()
         {
-            RealCardValue = (int)Value;
-            if (Value == Card.CardValue.Jack || Value == Card.CardValue.Queen || Value == Card.CardValue.King)
+            CardValue = (int)Id;
+            if (Id == Card.CardId.Jack || Id == Card.CardId.Queen || Id == Card.CardId.King)
             {
-                RealCardValue = 10;
-                //return card;
+                CardValue = 10;
             }
-
-            //return card;
         }
     }
 }

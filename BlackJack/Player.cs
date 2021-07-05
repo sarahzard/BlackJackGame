@@ -13,8 +13,8 @@ namespace BlackJack
         {
             CardOne = new Card();
             CardTwo = new Card();
-            Console.WriteLine($"Your hand is: {CardOne.Value}({(int)CardOne.RealCardValue}) and {CardTwo.Value}({(int)CardTwo.RealCardValue})\n");
-            InitialSum = CardOne.RealCardValue + CardTwo.RealCardValue;
+            Console.WriteLine($"Your hand is: {CardOne.Id}({CardOne.CardValue}) and {CardTwo.Id}({CardTwo.CardValue})\n");
+            InitialSum = CardOne.CardValue + CardTwo.CardValue;
             SumOfCards = InitialSum;
 
             return InitialSum;
@@ -38,8 +38,8 @@ namespace BlackJack
         public override int Hit()
         {
             CardN = new Card();
-            SumOfCards += CardN.RealCardValue;
-            Console.WriteLine($"You got {CardN.Value} ({CardN.RealCardValue}). Your sum is now {SumOfCards}.");
+            SumOfCards += CardN.CardValue;
+            Console.WriteLine($"You got {CardN.Id} ({CardN.CardValue}). Your sum is now {SumOfCards}.");
             
             return SumOfCards;
         }

@@ -8,28 +8,28 @@
           <NewMemberFileName>Card.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
-      <Enum Name="BlackJack.Card.CardValue" Collapsed="true">
+      <Enum Name="BlackJack.Card.CardId" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Card.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>ABAAAABAAAAAAAgAAAAAAAgAAAAAAAAAAAAgAAAAAAE=</HashCode>
+      <HashCode>ABACAADAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Card.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BlackJack.Player">
     <Position X="0.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAIAAAAAAIAAAAAQAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAUCAAAAAAAAIA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BlackJack.Dealer">
     <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAYAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAACAAAAAAAAIA=</HashCode>
       <FileName>Dealer.cs</FileName>
     </TypeIdentifier>
   </Class>
