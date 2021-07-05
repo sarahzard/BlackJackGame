@@ -15,10 +15,12 @@ namespace BlackJack
         public Card()
         {
             _value = (CardValue)_random.Next((int)CardValue.Ace, (int)CardValue.King + 1);
+            AdjustCardValue();
         }
         #endregion Constructors
 
         #region Properties
+        public int RealCardValue { get; set; }
         public CardValue Value
         {
             get
@@ -61,6 +63,17 @@ namespace BlackJack
             Jack,// = 10,
             Queen,// = 10,
             King //= 10
+        }
+        public void AdjustCardValue()
+        {
+            RealCardValue = (int)Value;
+            if (Value == Card.CardValue.Jack || Value == Card.CardValue.Queen || Value == Card.CardValue.King)
+            {
+                RealCardValue = 10;
+                //return card;
+            }
+
+            //return card;
         }
     }
 }

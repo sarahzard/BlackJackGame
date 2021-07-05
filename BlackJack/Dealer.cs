@@ -10,30 +10,27 @@ namespace BlackJack
         public override int InitialCards()
         {
             CardTwo = new Card();
-            Console.WriteLine($"Dealer's hand is hidden card and {CardTwo.Value} ({(int)CardTwo.Value}).\n");
-            //return InitialSum and later remove cardOne's value?
-            //InitialSum = (int)CardOne.Value + (int)CardTwo.Value;
-            //SumOfCards = InitialSum;
-            //return (int)CardOne.Value + (int)CardTwo.Value;
-            return (int)CardTwo.Value;
+            Console.WriteLine($"Dealer's hand is hidden card and {CardTwo.Value} ({(int)CardTwo.RealCardValue}).\n");
+
+            return CardTwo.RealCardValue;
         }
         public int PlayTurn()
         {
             CardOne = new Card();
-            SumOfCards = (int)CardOne.Value + (int)CardTwo.Value;
+            SumOfCards = CardOne.RealCardValue + CardTwo.RealCardValue;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Dealer's turn!\n");
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Value} ({(int)CardOne.Value}). " +
+            Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Value} ({(int)CardOne.RealCardValue}). " +
                               $"The dealer's initial sum is: {SumOfCards}\n");
             return SumOfCards;
         }
         public override int Hit()
         {
             CardN = new Card();
-            SumOfCards += (int)CardN.Value;
-            Console.WriteLine($"Dealer pulled {CardN.Value} ({(int)CardN.Value}). Dealer's sum is now: {SumOfCards}");
+            SumOfCards += CardN.RealCardValue;
+            Console.WriteLine($"Dealer pulled {CardN.Value} ({CardN.RealCardValue}). Dealer's sum is now: {SumOfCards}");
             
             return SumOfCards;
         }

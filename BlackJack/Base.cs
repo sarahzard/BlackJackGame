@@ -18,16 +18,6 @@ namespace BlackJack
         public Card CardOne { get; set; }
         public Card CardTwo { get; set; }
         public Card CardN { get; set; }
-        public static void AdjustCardValue()
-        {
-            
-            int newJackValue = (int)Card.CardValue.Jack;
-            newJackValue = 10;
-            int newQueenValue = (int)Card.CardValue.Jack;
-            newQueenValue = 10;
-            int newKingValue = (int)Card.CardValue.Jack;
-            newKingValue = 10;
-        }
 
         public abstract int InitialCards();
 
