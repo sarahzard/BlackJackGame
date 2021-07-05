@@ -5,40 +5,17 @@ using System.Text;
 
 namespace BlackJack
 {
-    public class Player
+    public class Player : Base
     {
-        private int _sumOfCards;
-        private int _initialSum;
         public bool isPlaying = true;
-        public int SumOfCards
-        {
-            get
-            {
-                return _sumOfCards;
-            }
-            set
-            {
-                _sumOfCards = value;
-            }
-        }
-        public int InitialSum
-        {
-            get
-            {
-                return _initialSum;
-            }
-            set
-            {
-                _initialSum = value;
-            }
-        }
 
-        public int InitialCards()
+        public override int InitialCards() 
         {
-            Card card1 = new Card();
-            Card card2 = new Card();
-            Console.WriteLine($"Your hand is: {card1.Value}({(int)card1.Value}) and {card2.Value}({(int)card2.Value})\n");
-            InitialSum = (int)card1.Value + (int)card2.Value;
+            CardOne = new Card();
+            CardTwo = new Card();
+
+            Console.WriteLine($"Your hand is: {CardOne.Value}({(int)CardOne.Value}) and {CardTwo.Value}({(int)CardTwo.Value})\n");
+            InitialSum = (int)CardOne.Value + (int)CardTwo.Value;
             SumOfCards = InitialSum;
 
             return InitialSum;
@@ -59,18 +36,18 @@ namespace BlackJack
                 Stay();
             }
         }
-        public int Hit()
+        public override int Hit()
         {
-            var newCard = new Card();
-            Console.WriteLine($"You got {newCard.Value} ({(int)newCard.Value}).");
-            SumOfCards += (int)newCard.Value;
-            //isPlaying = true;
-            return SumOfCards;
+            CardN = new Card();
+            Base.AdjustCardValue();
+            SumOfCards += (int)CardN.Value;
+            Console.WriteLine($"You got {CardN.Value} ({(int)CardN.Value}). Your sum is now {SumOfCards}.");
             
+            return SumOfCards;
         }
 
         public void Stay()
-        { ;
+        { 
             Console.WriteLine($"You chose to stay. You sum is: {SumOfCards}\n");
             isPlaying = false;
         }
