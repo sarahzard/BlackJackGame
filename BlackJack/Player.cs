@@ -44,13 +44,13 @@ namespace BlackJack
             }
             SumOfCards += CardN.Value;
             Console.WriteLine($"You got {CardN.Id} ({CardN.Value}). Your sum is now {SumOfCards}.");
-            
             return SumOfCards;
         }
 
         public void Stay()
         { 
             Console.WriteLine($"You chose to stay. You sum is: {SumOfCards}\n");
+            Console.ReadKey();
             isPlaying = false;
         }
     }

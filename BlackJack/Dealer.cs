@@ -22,18 +22,17 @@ namespace BlackJack
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Dealer's turn!\n");
             Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ReadKey();
 
             Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Id} ({CardOne.Value}). " +
                               $"The dealer's initial sum is: {SumOfCards}\n");
+            Console.ReadKey();
             return SumOfCards;
         }
         public override int Hit()
         {
             CardN = new Card();
-            //if (SumOfCards + CardN.Value > 21)
-            //{
-            //    CardN.ConvertAceValue();
-            //}
+            
             SumOfCards += CardN.Value;
             Console.WriteLine($"Dealer pulled {CardN.Id} ({CardN.Value}). Dealer's sum is now: {SumOfCards}");
             
