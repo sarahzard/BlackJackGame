@@ -7,13 +7,24 @@ namespace BlackJack
 {
     public class Player : Base
     {
-        public bool isPlaying = true;
+        public bool isPlaying;
 
-        public override int InitialCards() 
+        public override int InitialCards()
         {
+            isPlaying = true;
             CardOne = new Card();
             CardTwo = new Card();
+
+            if (CardOne.Id == Card.CardId.Ace && CardTwo.Id == Card.CardId.Ace)
+            {
+                CardTwo.ConvertAceValue();
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Your hand is: {CardOne.Id} of {CardOne.Suit}({CardOne.Value}) and {CardTwo.Id} of {CardTwo.Suit}({CardTwo.Value})\n");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             InitialSum = CardOne.Value + CardTwo.Value;
             SumOfCards = InitialSum;
 
@@ -43,7 +54,13 @@ namespace BlackJack
                 CardN.ConvertAceValue();
             }
             SumOfCards += CardN.Value;
-            Console.WriteLine($"You got {CardN.Id} of {CardN.Suit}({CardN.Value}). Your sum is now {SumOfCards}.");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"You got {CardN.Id} of {CardN.Suit}({CardN.Value})");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine($"Your sum is now {SumOfCards}.");
+                              
             return SumOfCards;
         }
 

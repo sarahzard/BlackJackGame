@@ -9,7 +9,7 @@ namespace BlackJack
     {
         private CardId _value;
         private CardSuit _suit;
-        private readonly Random _random = new Random();
+        private readonly Random _random = new ();
 
         #region Constructors
         public Card()
@@ -91,6 +91,5 @@ namespace BlackJack
                 Value = 1;
             }
         }
-
     }
 }
