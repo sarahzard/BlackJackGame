@@ -23,7 +23,7 @@ namespace BlackJack
         public void PlayTurn()
         {
             Console.WriteLine("Would you like to hit or stay? h/s\n");
-            var choice = Console.ReadKey(); //How to read key but not show in console
+            var choice = Console.ReadKey(true); //How to read key but not show in console
             Console.WriteLine();
 
             if (choice.KeyChar == 'h')

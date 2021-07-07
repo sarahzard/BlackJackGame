@@ -70,19 +70,25 @@ namespace BlackJack
 
         public void TrueBlackJack()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nCongratulations! You got true Blackjack!");
+            Console.ForegroundColor = ConsoleColor.Gray;
             WriteEndMessage();
         }
 
         public void PlayerWin()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nCongratulations! You won!");
+            Console.ForegroundColor = ConsoleColor.Gray;
             WriteEndMessage();
         }
 
         public void GameOver()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nSorry! You lost.");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         public void WriteEndMessage()
