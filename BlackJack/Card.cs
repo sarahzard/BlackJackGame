@@ -14,13 +14,13 @@ namespace BlackJack
         #region Constructors
         public Card()
         {
-            _value = (CardId)_random.Next((int)CardId.Ace, (int)CardId.King + 1);
+            _value = (CardId)_random.Next((int)CardId.Two, (int)CardId.Ace + 1);
             AdjustCardValue();
         }
         #endregion Constructors
 
         #region Properties
-        public int CardValue { get; set; }
+        public int Value { get; set; }
         public CardId Id
         {
             get
@@ -50,8 +50,7 @@ namespace BlackJack
         }
         public enum CardId
         {
-            Ace = 1,
-            Two,
+            Two = 2,
             Three,
             Four,
             Five,
@@ -60,17 +59,31 @@ namespace BlackJack
             Eight,
             Nine,
             Ten,
-            Jack,// = 10,
-            Queen,// = 10,
-            King //= 10
+            Jack,
+            Queen,
+            King,
+            Ace
         }
         public void AdjustCardValue()
         {
-            CardValue = (int)Id;
-            if (Id == Card.CardId.Jack || Id == Card.CardId.Queen || Id == Card.CardId.King)
+            Value = (int)Id;
+            if (Id == CardId.Jack || Id == CardId.Queen || Id == CardId.King)
             {
-                CardValue = 10;
+                Value = 10;
+            }
+            if (Id == CardId.Ace)
+            {
+                Value = 11;
+            }
+
+        }
+        public void ConvertAceValue()
+        {
+            if (Id == CardId.Ace)
+            {
+                Value = 1;
             }
         }
+
     }
 }

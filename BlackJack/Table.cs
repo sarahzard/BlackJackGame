@@ -9,7 +9,7 @@ namespace BlackJack
     {
         private readonly Dealer _dealer;
         private readonly Player _player;
-        
+
 
         public Table()
         {
@@ -20,6 +20,11 @@ namespace BlackJack
         {
             _dealer.InitialCards();
             _player.InitialCards();
+            if (_player.InitialSum == 21)
+            {
+                BlackJack();
+                Environment.Exit(0);
+            }
 
             while (_player.isPlaying)
             {
@@ -37,9 +42,13 @@ namespace BlackJack
 
             _dealer.PlayTurn();
 
-            while (_dealer.SumOfCards <= 17)
+            while (_dealer.SumOfCards <= 17)// && _dealer.CardN.Id != Card.CardId.Ace
             {
                 _dealer.Hit();
+                if (_dealer.SumOfCards + _dealer.CardN.Value > 21)
+                {
+                    _dealer.CardN.ConvertAceValue();
+                }
             }
 
             if (_dealer.SumOfCards >= _player.SumOfCards && _dealer.SumOfCards <= 21)
@@ -65,20 +74,24 @@ namespace BlackJack
 
         public void BlackJack()
         {
-            Console.WriteLine("\nCongratulations! You got Blackjack!");
-            Console.WriteLine($"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
+            Console.WriteLine("\nCongratulations! You got true Blackjack!");
+            WriteEndMessage();
         }
 
         public void TwentyOne()
         {
-            Console.WriteLine("Congratulations! You got TwentyOne!");
+            Console.WriteLine("\nCongratulations! You won!");
+            WriteEndMessage();
         }
 
         public void GameOver()
         {
             Console.WriteLine("\nSorry! You lost.");
+        }
 
-
+        public void WriteEndMessage()
+        {
+            Console.WriteLine($"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
         }
     }
 }
