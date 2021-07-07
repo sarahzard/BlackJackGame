@@ -10,7 +10,7 @@ namespace BlackJack
         public override int InitialCards()
         {
             CardTwo = new Card();
-            Console.WriteLine($"Dealer's hand is hidden card and {CardTwo.Id} ({CardTwo.Value}).\n");
+            Console.WriteLine($"Dealer's hand is hidden card and {CardTwo.Id} of {CardTwo.Suit}({CardTwo.Value}).\n");
 
             return CardTwo.Value;
         }
@@ -24,7 +24,7 @@ namespace BlackJack
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.ReadKey();
 
-            Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Id} ({CardOne.Value}). " +
+            Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Id} of {CardOne.Suit}({CardOne.Value}). " +
                               $"The dealer's initial sum is: {SumOfCards}\n");
             Console.ReadKey();
             return SumOfCards;
@@ -33,9 +33,14 @@ namespace BlackJack
         {
             CardN = new Card();
             
+            if (SumOfCards + CardN.Value > 21)
+            {
+                CardN.ConvertAceValue();
+            }
             SumOfCards += CardN.Value;
-            Console.WriteLine($"Dealer pulled {CardN.Id} ({CardN.Value}). Dealer's sum is now: {SumOfCards}");
-            
+
+            Console.WriteLine($"Dealer pulled {CardN.Id} of {CardN.Suit}({CardN.Value}). Dealer's sum is now: {SumOfCards}");
+            Console.ReadKey();
             return SumOfCards;
         }
 

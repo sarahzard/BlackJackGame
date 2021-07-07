@@ -13,7 +13,7 @@ namespace BlackJack
         {
             CardOne = new Card();
             CardTwo = new Card();
-            Console.WriteLine($"Your hand is: {CardOne.Id}({CardOne.Value}) and {CardTwo.Id}({CardTwo.Value})\n");
+            Console.WriteLine($"Your hand is: {CardOne.Id} of {CardOne.Suit}({CardOne.Value}) and {CardTwo.Id} of {CardTwo.Suit}({CardTwo.Value})\n");
             InitialSum = CardOne.Value + CardTwo.Value;
             SumOfCards = InitialSum;
 
@@ -43,7 +43,7 @@ namespace BlackJack
                 CardN.ConvertAceValue();
             }
             SumOfCards += CardN.Value;
-            Console.WriteLine($"You got {CardN.Id} ({CardN.Value}). Your sum is now {SumOfCards}.");
+            Console.WriteLine($"You got {CardN.Id} of {CardN.Suit}({CardN.Value}). Your sum is now {SumOfCards}.");
             return SumOfCards;
         }
 

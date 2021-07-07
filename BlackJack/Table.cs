@@ -22,7 +22,7 @@ namespace BlackJack
             _player.InitialCards();
             if (_player.InitialSum == 21)
             {
-                BlackJack();
+                TrueBlackJack();
                 Environment.Exit(0);
             }
 
@@ -45,10 +45,6 @@ namespace BlackJack
             while (_dealer.SumOfCards <= 17)// && _dealer.CardN.Id != Card.CardId.Ace
             {
                 _dealer.Hit();
-                if (_dealer.SumOfCards + _dealer.CardN.Value > 21)
-                {
-                    _dealer.CardN.ConvertAceValue();
-                }
             }
 
             if (_dealer.SumOfCards >= _player.SumOfCards && _dealer.SumOfCards <= 21)
@@ -59,11 +55,11 @@ namespace BlackJack
             }
             else if (_dealer.SumOfCards >= _player.SumOfCards && _dealer.SumOfCards > 21)
             {
-                BlackJack();
+                PlayerWin();
             }
             else if (_dealer.SumOfCards < _player.SumOfCards && _player.SumOfCards <= 21)
             {
-                BlackJack();
+                PlayerWin();
             }
             else
             {
@@ -72,13 +68,13 @@ namespace BlackJack
 
         }
 
-        public void BlackJack()
+        public void TrueBlackJack()
         {
             Console.WriteLine("\nCongratulations! You got true Blackjack!");
             WriteEndMessage();
         }
 
-        public void TwentyOne()
+        public void PlayerWin()
         {
             Console.WriteLine("\nCongratulations! You won!");
             WriteEndMessage();

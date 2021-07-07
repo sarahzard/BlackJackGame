@@ -8,13 +8,14 @@ namespace BlackJack
     public class Card
     {
         private CardId _value;
-        private int _suit;
+        private CardSuit _suit;
         private readonly Random _random = new Random();
 
         #region Constructors
         public Card()
         {
             _value = (CardId)_random.Next((int)CardId.Two, (int)CardId.Ace + 1);
+            _suit = (CardSuit) _random.Next(1, 5);
             AdjustCardValue();
         }
         #endregion Constructors
@@ -33,17 +34,23 @@ namespace BlackJack
             }
         }
 
-        public int Suit
+        public CardSuit Suit
         {
-            get => default;
-            set => _suit = value;
-
+            get
+            {
+                return _suit;
+            }
+            set
+            {
+                _suit = value;
+            }
         }
+
         #endregion Properties
 
         public enum CardSuit
         {
-            Hearts,
+            Hearts = 1,
             Clubs,
             Diamonds,
             Spades
