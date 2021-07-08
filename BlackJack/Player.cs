@@ -20,8 +20,9 @@ namespace BlackJack
                 CardTwo.ConvertAceValue();
             }
 
+            
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Your hand is: {CardOne.Id} of {CardOne.Suit}({CardOne.Value}) and {CardTwo.Id} of {CardTwo.Suit}({CardTwo.Value})\n");
+            Console.WriteLine($"Your hand is: {CardOne.Id} of {CardOne.Suit} {CardOne.SetIcon()}({CardOne.Value}) and {CardTwo.Id} of {CardTwo.Suit} {CardTwo.SetIcon()}({CardTwo.Value})\n");
 
             Console.ForegroundColor = ConsoleColor.Gray;
 
@@ -56,7 +57,7 @@ namespace BlackJack
             SumOfCards += CardN.Value;
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"You got {CardN.Id} of {CardN.Suit}({CardN.Value})");
+            Console.WriteLine($"You got {CardN.Id} of {CardN.Suit} {CardN.SetIcon()}({CardN.Value})");
 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"Your sum is now {SumOfCards}.");

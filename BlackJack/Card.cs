@@ -55,6 +55,7 @@ namespace BlackJack
             Diamonds,
             Spades
         }
+
         public enum CardId
         {
             Two = 2,
@@ -90,6 +91,31 @@ namespace BlackJack
             {
                 Value = 1;
             }
+        }
+        public string SetIcon()
+        {
+            string _myString;
+
+            if (Suit is Card.CardSuit.Clubs or Card.CardSuit.Clubs or Card.CardSuit.Clubs)
+            {
+                return _myString = "♣";
+            }
+
+            if (Suit is Card.CardSuit.Hearts or Card.CardSuit.Hearts or Card.CardSuit.Hearts)
+            {
+                return _myString = "♥";
+            }
+
+            if (Suit is Card.CardSuit.Spades or Card.CardSuit.Spades or Card.CardSuit.Spades)
+            {
+                return _myString = "♠";
+            }
+
+            if (Suit is Card.CardSuit.Diamonds or Card.CardSuit.Diamonds or Card.CardSuit.Diamonds)
+            {
+                return _myString = "♦";
+            }
+            return null;
         }
     }
 }

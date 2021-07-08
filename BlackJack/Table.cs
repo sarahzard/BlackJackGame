@@ -10,6 +10,7 @@ namespace BlackJack
         private readonly Dealer _dealer;
         private readonly Player _player;
         private bool _gameRunning;
+
         public Table()
         {
             _dealer = new Dealer();
@@ -17,6 +18,7 @@ namespace BlackJack
         }
 
         #region Methods
+
         public static void WelcomeMessage()
         {
             Console.Clear();
@@ -30,6 +32,7 @@ namespace BlackJack
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
         public void PlayBlackJack()
         {
             _gameRunning = true;
@@ -70,7 +73,8 @@ namespace BlackJack
                 if (_dealer.SumOfCards >= _player.SumOfCards && _dealer.SumOfCards <= 21)
                 {
                     GameOver();
-                    Console.WriteLine($"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
+                    Console.WriteLine(
+                        $"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
                     ResetGame();
 
                 }
@@ -95,6 +99,7 @@ namespace BlackJack
                 }
             }
         }
+
         public void TrueBlackJack()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -102,6 +107,7 @@ namespace BlackJack
             Console.ForegroundColor = ConsoleColor.Gray;
             WriteEndMessage();
         }
+
         public void PlayerWin()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -109,6 +115,7 @@ namespace BlackJack
             Console.ForegroundColor = ConsoleColor.Gray;
             WriteEndMessage();
         }
+
         public void GameOver()
         {
             _player.isPlaying = false;
@@ -116,10 +123,13 @@ namespace BlackJack
             Console.WriteLine("\nSorry! You lost.");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
         public void WriteEndMessage()
         {
-            Console.WriteLine($"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
+            Console.WriteLine(
+                $"Your total was {_player.SumOfCards}, and the dealer's total was {_dealer.SumOfCards}.\n");
         }
+
         public void ResetGame()
         {
             Console.WriteLine("\nWould you like to play again?  y/n");
@@ -135,6 +145,9 @@ namespace BlackJack
                 Environment.Exit(0);
             }
         }
-#endregion Methods
+
+        
+
+            #endregion Methods
+        }
     }
-}

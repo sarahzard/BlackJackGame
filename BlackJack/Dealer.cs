@@ -12,7 +12,7 @@ namespace BlackJack
             CardTwo = new Card();
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine($"Dealer's hand is [HIDDEN CARD] and {CardTwo.Id} of {CardTwo.Suit}({CardTwo.Value}).\n");
+            Console.WriteLine($"Dealer's hand is [HIDDEN CARD] and {CardTwo.Id} of {CardTwo.Suit} {CardTwo.SetIcon()}({CardTwo.Value}).\n");
             Console.ForegroundColor = ConsoleColor.Gray;
 
             return CardTwo.Value;
@@ -29,7 +29,7 @@ namespace BlackJack
             Console.ReadKey();
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Id} of {CardOne.Suit}({CardOne.Value})");
+            Console.WriteLine($"Dealer revealed hidden card! Hidden card is: {CardOne.Id} of {CardOne.Suit} {CardOne.SetIcon()}({CardOne.Value})");
 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"The dealer's initial sum is: {SumOfCards}\n");
@@ -48,7 +48,7 @@ namespace BlackJack
             SumOfCards += CardN.Value;
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine($"Dealer pulled {CardN.Id} of {CardN.Suit}({CardN.Value}). Dealer's sum is now: {SumOfCards}");
+            Console.WriteLine($"Dealer pulled {CardN.Id} of {CardN.Suit} {CardN.SetIcon()}({CardN.Value}). Dealer's sum is now: {SumOfCards}");
 
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.ReadKey();

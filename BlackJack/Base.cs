@@ -19,5 +19,6 @@ namespace BlackJack
 
         //public abstract void PlayTurn();
         //Se på denne til slutt, 2 forskjellige returns (void og int). Kan gjøre om?
+       
     }
 }
